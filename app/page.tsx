@@ -1,10 +1,10 @@
-import ExpenseForm from "@/gfhghg/expense-form";
+import ExpenseForm from "@/components/expense-form";
 import { getExpense } from "@/lib/expense";
 export default async function Home() {
   const expense = await getExpense();
 
   return (
-    <section className="py-24 px-5">
+    <section className="py-15 px-5 h-full">
       <div className="container">
         <h1 className="text-3xl font-bold">Expense Tracker</h1>
         <h2 className="text-zinc-500">Using Neon: Serverless Postgres</h2>
@@ -16,7 +16,7 @@ export default async function Home() {
               {expense.map((expense) => (
                 <li key={expense.id} className="flex justify-between">
                   <span>{expense.title}</span>
-                  <span>{expense.amount}</span>
+                  <span>{expense.amount} ₹</span>
                 </li>
               ))}
             </ul>

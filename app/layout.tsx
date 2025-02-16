@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header } from "@/gfhghg/header";
-import { Footer } from "@/gfhghg/footer";
+import { Header } from "@/components/header";
 
 export const metadata: Metadata = {
   title: "Expense Tracker",
@@ -18,7 +17,6 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );
