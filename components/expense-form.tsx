@@ -5,6 +5,7 @@ import { createExpenseActions } from "@/lib/actions";
 
 export default function NewExpenseForm() {
   const [state, action, isPending] = useActionState(createExpenseActions, null);
+  console.log(state);
 
   return (
     <div className="w-1/3">
