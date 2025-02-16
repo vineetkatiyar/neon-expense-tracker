@@ -16,12 +16,14 @@ export default function NewExpenseForm() {
           name="title"
           placeholder="Title"
           className="border border-zinc-300 p-2"
+          required
         />
         <input
           type="number"
           name="amount"
           placeholder="Amount"
           className="border border-zinc-300 p-2"
+          required
         />
         <button
           disabled={isPending}
