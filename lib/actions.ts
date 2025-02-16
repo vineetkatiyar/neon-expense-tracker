@@ -3,7 +3,9 @@
 import { createExpense } from "@/lib/expense";
 import { revalidatePath } from "next/cache";
 
-export async function createExpenseActions(state: any, formData: FormData) {
+
+
+export async function createExpenseActions(prevState: unknown, formData: FormData) {
   const data = Object.fromEntries(formData.entries());
 
   const title = data.title as string;
