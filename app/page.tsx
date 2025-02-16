@@ -1,4 +1,4 @@
-import ExpenseForm from "@/components/expense-form";
+import ExpenseForm from "@/gfhghg/expense-form";
 import { getExpense } from "@/lib/expense";
 export default async function Home() {
   const expense = await getExpense();
