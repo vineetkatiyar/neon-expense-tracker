@@ -22,15 +22,14 @@ export default function NewExpenseForm() {
           type="number"
           name="amount"
           placeholder="Amount"
-          className="border border-zinc-300 p-2"
+          className="border border-zinc-300 p-2 rounded-sm"
           required
         />
         <button
-          disabled={isPending}
           type="submit"
-          className="bg-purple-600 p-2 text-white disabled:bg-slate-500"
+          className="bg-gray-600 p-2 text-white disabled:bg-slate-500 rounded-md"
         >
-          Add
+          {isPending ? "Adding..." : "Add "}
         </button>
       </form>
     </div>

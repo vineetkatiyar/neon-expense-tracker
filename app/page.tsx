@@ -4,7 +4,7 @@ export default async function Home() {
   const expense = await getExpense();
 
   return (
-    <section className="py-15 px-5 h-full">
+    <section className="py-24 px-10 h-full">
       <div className="container">
         <h1 className="text-3xl font-bold">Expense Tracker</h1>
         <h2 className="text-zinc-500">Using Neon: Serverless Postgres</h2>
