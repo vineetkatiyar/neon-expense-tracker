@@ -28,13 +28,17 @@ export default function ExpenseList({ expense }: { expense: Expense[] }) {
 
   return (
     <section className="py-12 px-6 md:px-10 h-full bg-gray-50">
-      <div className="container mx-auto max-w-2xl bg-white p-6 shadow-lg rounded-lg">
-        <div className="mt-6">
-          <ul className="mt-4 flex flex-col gap-3">
-            {optimisticExpense.map((expense) => (
+      <div className="container mx-auto w-full max-w-2xl bg-white p-6 shadow-md rounded-lg">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Expenses</h2>
+
+        <div className="mt-4">
+          <ul className="flex flex-col divide-y divide-gray-200">
+            {optimisticExpense.map((expense, index) => (
               <li
                 key={expense.id}
-                className="flex justify-between items-center bg-gray-100 p-4 rounded-md shadow-sm"
+                className={`grid grid-cols-3 items-center p-4 rounded-md ${
+                  index % 2 === 0 ? "bg-gray-50" : "bg-white"
+                }`}
               >
                 <div className="flex flex-col">
                   <span className="text-gray-800 font-medium">
@@ -42,11 +46,17 @@ export default function ExpenseList({ expense }: { expense: Expense[] }) {
                   </span>
                   <span className="text-gray-600">{expense.amount}₹</span>
                 </div>
-                <form action={removeExpenseById.bind(null, expense.id)}>
+                <span className="text-gray-500 text-sm">
+                  {new Date(expense.createdAt).toLocaleDateString()}
+                </span>
+                <form
+                  action={removeExpenseById.bind(null, expense.id)}
+                  className="flex justify-end"
+                >
                   <Button
                     variant="destructive"
                     size="icon"
-                    className="hover:bg-red-600"
+                    className="hover:bg-red-600 transition-all"
                   >
                     <Trash2Icon className="w-5 h-5" />
                   </Button>
