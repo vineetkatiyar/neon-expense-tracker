@@ -4,32 +4,33 @@ import { useActionState } from "react";
 import { createExpenseActions } from "@/lib/actions";
 
 export default function NewExpenseForm() {
+  
   const [state, action, isPending] = useActionState(createExpenseActions, null);
   console.log(state);
 
   return (
-    <div className="w-1/3">
-      <h3 className="text-xl font-bold">Add new</h3>
-      <form className="mt-3 flex flex-col gap-4" action={action}>
+    <div className="w-full max-w-md mx-auto bg-white p-6 shadow-md rounded-lg">
+      <h3 className="text-2xl font-semibold text-gray-800">Add New Expense</h3>
+      <form className="mt-4 flex flex-col gap-4" action={action}>
         <input
           type="text"
           name="title"
           placeholder="Title"
-          className="border border-zinc-300 p-2"
+          className="focus:outline-none border border-gray-300 p-2 rounded-md focus:ring focus:ring-gray-400"
           required
         />
         <input
           type="number"
           name="amount"
           placeholder="Amount"
-          className="border border-zinc-300 p-2 rounded-sm"
+          className="focus:outline-none border border-gray-300 p-2 rounded-md focus:ring focus:ring-gray-400"
           required
         />
         <button
           type="submit"
-          className="bg-gray-600 p-2 text-white disabled:bg-slate-500 rounded-md"
+          className="bg-gray-800 text-white py-2 rounded-md hover:bg-gray-700 transition-all disabled:bg-gray-500"
         >
-          {isPending ? "Adding..." : "Add "}
+          {isPending ? "Adding..." : "Add Expense"}
         </button>
       </form>
     </div>

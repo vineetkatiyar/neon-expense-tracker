@@ -1,11 +1,12 @@
 "use server";
 
-import { createExpense } from "@/lib/expense";
+import { createExpense, deleteExpense } from "@/lib/expense";
 import { revalidatePath } from "next/cache";
 
-
-
-export async function createExpenseActions(prevState: unknown, formData: FormData) {
+export async function createExpenseActions(
+  prevState: unknown,
+  formData: FormData
+) {
   const data = Object.fromEntries(formData.entries());
 
   const title = data.title as string;
@@ -18,6 +19,11 @@ export async function createExpenseActions(prevState: unknown, formData: FormDat
     throw new Error("Amount must be a number ");
   }
 
-  await createExpense({ title, amount })
-  revalidatePath("/")
+  await createExpense({ title, amount });
+  revalidatePath("/");
+}
+
+export async function deleteExpenseAction(id: string) {
+  await deleteExpense(id);
+  revalidatePath("/");
 }
